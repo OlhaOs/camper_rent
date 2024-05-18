@@ -1,0 +1,12 @@
+.showMoreBtn {
+  width: 166px;
+  height: 56px;
+  border-radius: 200px;
+  border: none;
+  color: #ffffff;
+  background-color: #e44848;
+  cursor: pointer;
+}
+.link {
+  color: white;
+}

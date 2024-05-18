@@ -1,0 +1,101 @@
+.cardContainer {
+  width: 888px;
+  display: flex;
+
+  gap: 24px;
+  padding: 24px;
+
+  border: 1px solid rgb(16, 24, 40, 0.2);
+  border-radius: 12px;
+}
+.imgGallery {
+  border-radius: 10px;
+  width: 290px;
+  height: 310px;
+  object-fit: cover;
+  object-position: right;
+}
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  width: 526px;
+}
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.price {
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.rateContainer {
+  display: flex;
+  align-items: center;
+}
+
+.rate {
+  margin-right: 16px;
+  margin-left: 4px;
+  text-decoration: underline;
+}
+.location {
+  margin-left: 4px;
+}
+.description {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: 0px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}
+
+.equipmentList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #101828;
+}
+
+.iconHeart {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #101828;
+  cursor: pointer;
+}
+svg.clicked {
+  fill: red;
+}
+.iconAc {
+  width: 20px;
+  height: 20px;
+}
+.equipmentBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background-color: #f2f4f7;
+  border-radius: 100px;
+  margin-top: 24px;
+}
+.listName {
+  font-size: 16px;
+  font-weight: medium;
+  text-transform: capitalize;
+}

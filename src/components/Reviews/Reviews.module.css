@@ -1,0 +1,50 @@
+.reviewsSection {
+  display: flex;
+  gap: 24px;
+  margin-top: 44px;
+}
+.reviewsContainer {
+  width: 448px;
+  border-radius: 10px;
+
+  padding: 24px;
+}
+.reviewItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f2f4f7;
+  color: #e44848;
+  font-size: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
+.rateContainer {
+  display: flex;
+  flex-direction: column;
+}
+.rate {
+  margin-top: 4px;
+}
+.comment {
+  font-size: 16px;
+  line-height: 24px;
+}

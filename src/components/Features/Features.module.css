@@ -1,0 +1,59 @@
+.featuresContainer {
+  display: flex;
+  gap: 24px;
+  margin-top: 44px;
+}
+.featuresList {
+  width: 430px;
+}
+.equipmentBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background-color: #f2f4f7;
+  border-radius: 100px;
+
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #101828;
+}
+.iconAc {
+  width: 20px;
+  height: 20px;
+}
+.equipmentList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.listName {
+  font-size: 16px;
+  font-weight: medium;
+  text-transform: capitalize;
+}
+.detailsItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.detailsItem :last-child {
+  margin-bottom: 0;
+}
+.detailsText {
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.detailsTitle {
+  font-size: 20px;
+  margin-top: 44px;
+  margin-bottom: 24px;
+}
+.vehicleDetails {
+  padding-top: 24px;
+  border-top: 1px solid rgb(16, 24, 40, 0.1);
+}

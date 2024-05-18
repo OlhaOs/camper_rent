@@ -1,0 +1,88 @@
+.sectionFilters {
+  width: 360px;
+  margin-right: 64px;
+}
+
+.equipmentBtn {
+  width: 112px;
+  height: 95px;
+  display: none;
+}
+
+.equipmentContainer.checked {
+  border: 1px solid rgb(228, 72, 72);
+}
+.equipmentContainer {
+  width: 112px;
+  height: 95px;
+  border-radius: 10px;
+  border: 1px solid rgb(16, 24, 40, 0.2);
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: medium;
+  color: #101828;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.equipmentList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.equipmentTitle {
+  margin-bottom: 48px;
+}
+.filtersTitle {
+  font-size: 16px;
+  color: #475467;
+}
+.locationTitle {
+  font-size: 16px;
+  color: rgb(16, 24, 40, 0.6);
+  margin-bottom: 8px;
+}
+.inputFilter {
+  width: 100%;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid #f7f7f7;
+  margin-bottom: 32px;
+  padding-left: 10px;
+}
+.inputFilter:focus {
+  outline: 1px solid rgb(228, 72, 72);
+}
+
+.typeTitle {
+  margin-top: 32px;
+  margin-bottom: 48px;
+}
+.typeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 64px;
+}
+.icon {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: #101828;
+}
+.iconAc {
+  width: 32px;
+  height: 32px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
