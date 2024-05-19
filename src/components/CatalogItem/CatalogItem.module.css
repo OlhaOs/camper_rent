@@ -78,8 +78,9 @@
   stroke: #101828;
   cursor: pointer;
 }
-svg.clicked {
-  fill: red;
+.favorite {
+  fill: #e44848;
+  stroke: #e44848;
 }
 .iconAc {
   width: 20px;

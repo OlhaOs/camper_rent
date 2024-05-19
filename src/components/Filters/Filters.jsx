@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import css from './Filters.module.css';
-import { ShowMoreButton } from '../ShowMoreButton/ShowMoreButton';
 import icons from '../../icon/icons.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFiltered } from '../../store/filters/selectors';
+import {
+  findCampers,
+  typeCampers,
+  toggleEquipment,
+} from '../../store/filters/slice';
+import { ResetFiltersBtn } from '../ResetFiltersBtn/ResetFiltersBtn';
 
 export const Filters = () => {
-  const [selectedEquipment, setSelectedEquipment] = useState([]);
-  const [selectedType, setSelectedType] = useState('');
+  const dispatch = useDispatch();
+  const { locationQuery, type, equipment } = useSelector(getFiltered);
+
+  const handleLocationChange = e => {
+    dispatch(findCampers(e.target.value));
+  };
 
   const handleCheckboxChange = event => {
-    const { id, checked } = event.target;
-    if (checked) {
-      setSelectedEquipment(prevState => [...prevState, id]);
-    } else {
-      setSelectedEquipment(prevState => prevState.filter(item => item !== id));
-    }
+    dispatch(toggleEquipment(event.target.id));
   };
+
   const handleRadioChange = event => {
-    setSelectedType(event.target.value);
+    dispatch(typeCampers(event.target.value));
   };
 
   return (
@@ -26,6 +33,8 @@ export const Filters = () => {
         type='text'
         className={css.inputFilter}
         placeholder='Enter location'
+        value={locationQuery}
+        onChange={handleLocationChange}
       />
 
       <p className={css.filtersTitle}>Filters</p>
@@ -33,16 +42,16 @@ export const Filters = () => {
       <ul className={css.equipmentList}>
         <li
           className={`${css.equipmentContainer} ${
-            selectedEquipment.includes('AC') ? css.checked : ''
+            equipment.includes('airConditioner') ? css.checked : ''
           }`}
         >
           <input
             type='checkbox'
-            id='AC'
+            id='airConditioner'
             className={css.equipmentBtn}
             onChange={handleCheckboxChange}
           />
-          <label htmlFor='AC'>
+          <label htmlFor='airConditioner'>
             <svg className={css.iconAc}>
               <use href={icons + '#icon-ac'} />
             </svg>
@@ -51,7 +60,7 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            selectedEquipment.includes('Automatic') ? css.checked : ''
+            equipment.includes('Automatic') ? css.checked : ''
           }`}
         >
           <input
@@ -69,7 +78,7 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            selectedEquipment.includes('Kitchen') ? css.checked : ''
+            equipment.includes('Kitchen') ? css.checked : ''
           }`}
         >
           <input
@@ -87,7 +96,7 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            selectedEquipment.includes('TV') ? css.checked : ''
+            equipment.includes('TV') ? css.checked : ''
           }`}
         >
           <input
@@ -105,16 +114,16 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            selectedEquipment.includes('Shower/WC') ? css.checked : ''
+            equipment.includes('Shower') ? css.checked : ''
           }`}
         >
           <input
             type='checkbox'
-            id='Shower/WC'
+            id='Shower'
             className={css.equipmentBtn}
             onChange={handleCheckboxChange}
           />
-          <label htmlFor='Shower/WC'>
+          <label htmlFor='Shower'>
             <svg className={css.icon}>
               <use href={icons + '#icon-shower'} />
             </svg>
@@ -127,7 +136,7 @@ export const Filters = () => {
       <ul className={css.typeList}>
         <li
           className={`${css.equipmentContainer} ${
-            selectedType === 'Van' ? css.checked : ''
+            type === 'Van' ? css.checked : ''
           }`}
         >
           <input
@@ -147,7 +156,7 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            selectedType === 'Fully integrated' ? css.checked : ''
+            type === 'Fully integrated' ? css.checked : ''
           }`}
         >
           <input
@@ -167,7 +176,7 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            selectedType === 'Alcove' ? css.checked : ''
+            type === 'Alcove' ? css.checked : ''
           }`}
         >
           <input
@@ -186,7 +195,7 @@ export const Filters = () => {
           </label>
         </li>
       </ul>
-      <ShowMoreButton text='Search' />
+      <ResetFiltersBtn />
     </div>
   );
 };

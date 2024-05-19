@@ -1,4 +1,5 @@
 .bookingSection {
+  max-width: 100%;
   width: 448px;
   border-radius: 10px;
   border: 1px solid rgb(16, 24, 40, 0.2);

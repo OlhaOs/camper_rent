@@ -2,8 +2,11 @@ import { ShowMoreButton } from '../ShowMoreButton/ShowMoreButton';
 import css from './CatalogItem.module.css';
 import icons from '../../icon/icons.svg';
 import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+
 
 export const CatalogItem = ({ listItem }) => {
+
   const locationPath = useLocation();
   const {
     _id,
@@ -20,12 +23,15 @@ export const CatalogItem = ({ listItem }) => {
     reviews,
   } = listItem;
 
-  const handleFavorites = e => {
-    console.log('click in heart');
+  const [isFavorite, setIsFavorite] = useState(false);
 
-    e.target.classList.add('clicked');
-    console.dir(e.target);
+  const handleFavorites = e => {
+    setIsFavorite(prev => !prev);
   };
+  const favorites = isFavorite
+    ? `${css.iconHeart} ${css.favorite}`
+    : css.iconHeart;
+
   return (
     <>
       <li className={css.cardContainer}>
@@ -36,7 +42,7 @@ export const CatalogItem = ({ listItem }) => {
           <div className={css.cardHeader}>
             <h2 className={css.title}> {name}</h2>
             <p className={css.price}>€{price.toFixed(2)}</p>
-            <svg className={css.iconHeart} onClick={handleFavorites}>
+            <svg className={favorites} onClick={handleFavorites}>
               <use href={icons + '#icon-heart'} />
             </svg>
           </div>

@@ -1,30 +1,24 @@
 import { useParams } from 'react-router-dom';
 import { BookingForm } from '../BookingForm/BookingForm';
 import css from './Reviews.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { getCamperById } from '../../api/Catalog';
 import icons from '../../icon/icons.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCamperById } from '../../store/campers/selectors';
 
 export const Reviews = () => {
   const { itemId } = useParams();
-  const [camperData, setCamperData] = useState(null);
+  const dispatch = useDispatch();
+  const camperData = useSelector(state => selectCamperById(state, itemId));
 
   useEffect(() => {
-    const getItemDetails = async () => {
-      try {
-        const data = await getCamperById(itemId);
-        setCamperData(data);
-      } catch (error) {
-        console.error('Error In CАtalogList', error);
-      }
-    };
-
-    getItemDetails();
-  }, [itemId]);
+    if (!camperData && itemId) {
+      dispatch(getCamperById(itemId));
+    }
+  }, [dispatch, itemId, camperData]);
 
   const { reviews } = camperData || {};
-  // const { reviewer_name, reviewer_rating, comment } = reviews || {};
-  console.log(reviews);
 
   return (
     <section className={css.reviewsSection}>

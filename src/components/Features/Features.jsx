@@ -1,27 +1,23 @@
 import css from './Features.module.css';
 import icons from '../../icon/icons.svg';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCamperById } from '../../api/Catalog';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectCamperById } from '../../store/campers/selectors';
 import { BookingForm } from '../BookingForm/BookingForm';
+import { getCamperById } from '../../api/operation';
 
 export const Features = () => {
   const { itemId } = useParams();
-  const [camperData, setCamperData] = useState(null);
-  
+  const dispatch = useDispatch();
+  const camperData = useSelector(state => selectCamperById(state, itemId));
 
   useEffect(() => {
-    const getItemDetails = async () => {
-      try {
-        const data = await getCamperById(itemId);
-        setCamperData(data);
-      } catch (error) {
-        console.error('Error In CАtalogList', error);
-      }
-    };
-
-    getItemDetails();
-  }, [itemId]);
+    if (!camperData && itemId) {
+      dispatch(getCamperById(itemId));
+    }
+  }, [dispatch, itemId, camperData]);
 
   const {
     adults,

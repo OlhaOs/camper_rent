@@ -7,37 +7,29 @@ import {
 } from 'react-router-dom';
 import css from './Modal.module.css';
 import { useEffect, useState, useCallback } from 'react';
-import { getCamperById } from '../../api/Catalog';
+import { getCamperById } from '../../api/operation';
 import icons from '../../icon/icons.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCamperById } from '../../store/campers/selectors';
 
 export const Modal = () => {
   const { itemId } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const [camperData, setCamperData] = useState(null);
+  const camperData = useSelector(selectCamperById);
   const [activeLink, setActiveLink] = useState('');
   const location = useLocation();
 
-  console.log('location In MOdal', location.state);
-
   useEffect(() => {
-    const getItemDetails = async () => {
-      try {
-        const data = await getCamperById(itemId);
-        setCamperData(data);
-        setShowModal(true);
-      } catch (error) {
-        console.error('Error In CАtalogList', error);
-      }
-    };
-    getItemDetails();
-  }, [itemId]);
+    dispatch(getCamperById(itemId));
+    setShowModal(true);
+  }, [dispatch, itemId]);
 
   const handleLinkClick = link => {
     setActiveLink(link);
   };
 
-  
   const onCloseModal = useCallback(() => {
     setShowModal(false);
     if (location.state && location.state.from) {
@@ -68,6 +60,8 @@ export const Modal = () => {
     gallery,
     description,
   } = camperData || {};
+
+
   return (
     <>
       {showModal && (
@@ -84,7 +78,10 @@ export const Modal = () => {
                 <use href={icons + '#icon-Rating'} />
               </svg>
               <p className={css.rating}>{rating}</p>
-              <p className={css.reviews}>({reviews.length} Reviews)</p>
+              <p className={css.reviews}>
+                ({reviews && reviews.length > 0 ? reviews.length : 0} Reviews)
+              </p>
+
               <svg className={css.icon}>
                 <use href={icons + '#icon-map-pin'} />
               </svg>
@@ -112,6 +109,7 @@ export const Modal = () => {
                   to='features'
                   onClick={() => handleLinkClick('features')}
                   state={location.state}
+                  className={css.navLink}
                 >
                   Features
                 </Link>
@@ -123,6 +121,7 @@ export const Modal = () => {
               >
                 <Link
                   to='reviews'
+                  className={css.navLink}
                   onClick={() => handleLinkClick('reviews')}
                   state={location.state}
                 >

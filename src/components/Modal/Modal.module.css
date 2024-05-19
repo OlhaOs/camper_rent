@@ -78,6 +78,9 @@
 .description {
   margin-bottom: 24px;
 }
+.navLink{
+  color: #101828;
+}
 .link {
   position: relative;
   color: #101828;
@@ -85,6 +88,9 @@
   font-weight: 600;
   margin-right: 40px;
   text-decoration: none;
+}
+.navLink:visited {
+  color: #101828;
 }
 
 .link.active::after {
@@ -96,6 +102,9 @@
   bottom: -24px;
   left: 0;
   background-color: #e44848;
+}
+.link:hover {
+  transform: scale(1.05);
 }
 .addInfoContainer {
   display: flex;
