@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { setPage } from '../../store/campers/slice';
 import { useLocation } from 'react-router-dom';
 import { selectIsLoading } from '../../store/campers/selectors';
-import Loader from '../../components/Loader/Loader';
+import {Loader} from '../../components/Loader/Loader';
 
 export const Catalog = () => {
   const dispatch = useDispatch();

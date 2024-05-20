@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { getCamperList } from '../../api/operation';
 import { getFilteredCampers } from '../../store/selectors';
 import { selectIsLoading } from '../../store/campers/selectors';
-import Loader from '../../components/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 
 import { pageNext } from '../../store/campers/selectors';
 
