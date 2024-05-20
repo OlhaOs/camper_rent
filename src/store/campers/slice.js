@@ -8,8 +8,13 @@ export const campersSlice = createSlice({
     camper: null,
     isLoading: false,
     error: null,
+    page: 1,
   },
-
+  reducers: {
+    setPage(state, action) {
+      state.page = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getCamperList.pending, state => {
@@ -38,5 +43,5 @@ export const campersSlice = createSlice({
       });
   },
 });
-
+export const { setPage } = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;

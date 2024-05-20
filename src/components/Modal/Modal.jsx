@@ -61,7 +61,6 @@ export const Modal = () => {
     description,
   } = camperData || {};
 
-
   return (
     <>
       {showModal && (
@@ -87,9 +86,9 @@ export const Modal = () => {
               </svg>
               <p className={css.location}>{locationCamper}</p>
             </div>
-            <p className={css.price}>€{price.toFixed(2)}</p>
+            <p className={css.price}>€ {price && price.toFixed(2)}</p>
             <div className={css.imgContainer}>
-              {gallery.map((img, index) => (
+              {gallery && gallery.map((img, index) => (
                 <img
                   key={index}
                   className={css.imgModal}

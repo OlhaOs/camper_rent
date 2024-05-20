@@ -12,6 +12,7 @@ import { ResetFiltersBtn } from '../ResetFiltersBtn/ResetFiltersBtn';
 
 export const Filters = () => {
   const dispatch = useDispatch();
+
   const { locationQuery, type, equipment } = useSelector(getFiltered);
 
   const handleLocationChange = e => {
@@ -60,16 +61,16 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            equipment.includes('Automatic') ? css.checked : ''
+            equipment.includes('automatic') ? css.checked : ''
           }`}
         >
           <input
             type='checkbox'
-            id='Automatic'
+            id='automatic'
             className={css.equipmentBtn}
             onChange={handleCheckboxChange}
           />
-          <label htmlFor='Automatic'>
+          <label htmlFor='automatic'>
             <svg className={css.icon}>
               <use href={icons + '#icon-transmission'} />
             </svg>
@@ -78,16 +79,16 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            equipment.includes('Kitchen') ? css.checked : ''
+            equipment.includes('kitchen') ? css.checked : ''
           }`}
         >
           <input
             type='checkbox'
-            id='Kitchen'
+            id='kitchen'
             className={css.equipmentBtn}
             onChange={handleCheckboxChange}
           />
-          <label htmlFor='Kitchen'>
+          <label htmlFor='kitchen'>
             <svg className={css.icon}>
               <use href={icons + '#icon-kitchen'} />
             </svg>
@@ -114,16 +115,16 @@ export const Filters = () => {
         </li>
         <li
           className={`${css.equipmentContainer} ${
-            equipment.includes('Shower') ? css.checked : ''
+            equipment.includes('shower') ? css.checked : ''
           }`}
         >
           <input
             type='checkbox'
-            id='Shower'
+            id='shower'
             className={css.equipmentBtn}
             onChange={handleCheckboxChange}
           />
-          <label htmlFor='Shower'>
+          <label htmlFor='shower'>
             <svg className={css.icon}>
               <use href={icons + '#icon-shower'} />
             </svg>
@@ -195,6 +196,10 @@ export const Filters = () => {
           </label>
         </li>
       </ul>
+
+      {/* <button type='button' className={css.searchBtn} onClick={handleSearch}>
+        Reset filters
+      </button> */}
       <ResetFiltersBtn />
     </div>
   );

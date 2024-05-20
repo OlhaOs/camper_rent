@@ -39,6 +39,7 @@
 .filtersTitle {
   font-size: 16px;
   color: #475467;
+  margin-bottom: 8px;
 }
 .locationTitle {
   font-size: 16px;
@@ -52,6 +53,11 @@
   border: 1px solid #f7f7f7;
   margin-bottom: 32px;
   padding-left: 10px;
+}
+.inputFilter::placeholder {
+  font-size: 14px;
+  letter-spacing: 1.1px;
+  color: #475467;
 }
 .inputFilter:focus {
   outline: 1px solid rgb(228, 72, 72);

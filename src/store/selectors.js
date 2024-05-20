@@ -12,35 +12,22 @@ export const getFilteredCampers = createSelector(
       const locationMatches = camper.location
         .toLowerCase()
         .includes(locationQuery.toLowerCase());
+
       const typeMatches = camper.form
         .toLowerCase()
         .replace(/\s+/g, '')
         .includes(type.toLowerCase().replace(/\s+/g, ''));
 
-      //   const keys = [
-      //     ...Object.keys(camper).map(key => key.toLowerCase()),
-      //     ...Object.keys(camper.details).map(key => key.toLowerCase()),
-      //   ];
-
-      const keys = Object.keys(camper.details).map(key => key.toLowerCase());
-      const equipmentMatches = equipment.every(item =>
-        keys.includes(item.toLowerCase())
-      );
-      //   const equipmentMatches = equipment.every(item => {
-      //     const lowerCaseItem = item.toLowerCase();
-      //     console.log('lowerCaseItem', lowerCaseItem);
-      //     if (keys.includes(lowerCaseItem)) {
-      //       const camperValue = camper[lowerCaseItem];
-      //       console.log('camperValue', camperValue);
-      //       const detailsValue = camper.details[lowerCaseItem];
-      //       console.log('detailsValue', detailsValue);
-      //       return (
-      //         (camperValue !== 0 && camperValue !== false) ||
-      //         (detailsValue !== 0 && detailsValue !== false)
-      //       );
-      //     }
-      //     return false;
-      //   });
+      const equipmentMatches = equipment.every(item => {
+        if (camper.details.hasOwnProperty(item)) {
+          const detailValue = camper.details[item];
+          return detailValue !== 0 && detailValue !== '';
+        } else if (camper.transmission === item) {
+          const camperValue = camper[item];
+          return camperValue !== 0 && camperValue !== '';
+        }
+        return false;
+      });
 
       return locationMatches && typeMatches && equipmentMatches;
     });

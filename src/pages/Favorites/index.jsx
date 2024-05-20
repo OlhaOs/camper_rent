@@ -1,8 +1,14 @@
+import { FavoritesList } from '../../components/FavoritesList/FavoritesList';
+
+import css from './Favorites.module.css';
+
 export const Favorites = () => {
-    return (
-      <>
-        <div>Favorites Page</div>
-      </>
-    );
-  };
-  
+  return (
+    <>
+      <section className={css.catalogSection}>
+       
+        <FavoritesList />
+      </section>
+    </>
+  );
+};

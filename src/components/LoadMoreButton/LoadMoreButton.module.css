@@ -11,4 +11,5 @@ button.loadMoreBtn {
   font-size: 16px;
   font-weight: medium;
   background-color: white;
+  cursor: pointer;
 }
