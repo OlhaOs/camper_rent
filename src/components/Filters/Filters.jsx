@@ -197,9 +197,6 @@ export const Filters = () => {
         </li>
       </ul>
 
-      {/* <button type='button' className={css.searchBtn} onClick={handleSearch}>
-        Reset filters
-      </button> */}
       <ResetFiltersBtn />
     </div>
   );

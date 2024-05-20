@@ -7,7 +7,7 @@ export const getCamperList = createAsyncThunk(
   'campers/fetchAll',
   async (page, thunkAPI) => {
     try {
-      const response = await axios.get(`/homepage?page=${page}&limit=4`);
+      const response = await axios.get(`/homepage`);
 
       return response.data;
     } catch (error) {
