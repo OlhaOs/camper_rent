@@ -78,9 +78,11 @@
 .description {
   margin-bottom: 24px;
 }
-.navLink{
+.navLink {
   color: #101828;
+  transition: color 0.3s ease;
 }
+
 .link {
   position: relative;
   color: #101828;
@@ -91,6 +93,9 @@
 }
 .navLink:visited {
   color: #101828;
+}
+.navLink:hover {
+  color: #e44848;
 }
 
 .link.active::after {
@@ -105,6 +110,7 @@
 }
 .link:hover {
   transform: scale(1.05);
+  color: #e44848;
 }
 .addInfoContainer {
   display: flex;

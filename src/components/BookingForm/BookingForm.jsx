@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import css from './BookingForm.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const defaultState = {
   name: '',
@@ -10,7 +11,7 @@ const defaultState = {
 
 export const BookingForm = () => {
   const [userData, setUserData] = useState(defaultState);
-
+  const navigate = useNavigate();
   const handleChange = ({ target: { value, name } }) => {
     setUserData(prev => ({ ...prev, [name]: value }));
   };
@@ -21,8 +22,9 @@ export const BookingForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(userData);
+    alert("Form submitted successfully! We'll call you as soon as possible.");
     resetForm();
+    navigate('/catalog');
   };
 
   return (
@@ -59,7 +61,7 @@ export const BookingForm = () => {
           onChange={handleChange}
         />
         <label htmlFor='userEmail'></label>
-     
+
         <input
           type='date'
           id='dateBooking'
