@@ -1,4 +1,7 @@
 .container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1440px;
   display: flex;
   flex-direction: row;
   gap: 64px;
@@ -14,6 +17,7 @@
   font-size: 20px;
   text-decoration: none;
   color: #101828;
+  transition: color 0.3s ease;
 }
 .navlink:hover {
   font-size: 20px;
