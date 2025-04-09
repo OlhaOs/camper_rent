@@ -1,4 +1,5 @@
-.catalogSection{
-    display: flex;
-justify-content: center;
+.catalogSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
 }

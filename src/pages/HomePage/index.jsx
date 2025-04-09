@@ -1,13 +1,13 @@
 import css from './HomePage.module.css';
 import { Link } from 'react-router-dom';
-import homeImage from '../../image/home_image.jpg';
+import homeImage from '../../image/Picture.jpg';
 export const HomePage = () => {
   return (
     <>
       <section className={css.heroWrapper}>
         <img src={homeImage} alt='a camper example' className={css.heroImage} />
         <div className={css.heroInfo}>
-          <h1 className={css.title}>Explore world – the road is yours</h1>
+          <h1 className={css.title}>Explore world – the road is yours!</h1>
           <h2 className={css.subtitle}>
             Rent a camper and set out on your dream adventure.
             <br />
